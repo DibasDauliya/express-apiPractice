@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 
     response.on('end', () => {
       const arrData = JSON.parse(data)
-      res.render('index', { data: arrData, isOpen: isOpen, asOf: asOf })
+      res.render('index', { data: arrData, isOpen, asOf })
     })
   })
 })
