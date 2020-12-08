@@ -10,25 +10,23 @@ app.use(express.static('public'))
 app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
-  const url = 'https://newweb.nepalstock.com/api/nots/securityDailyTradeStat/58'
+  const url = ''
+  const url2 = ''
 
   //   state of market
   let data2 = ''
   let isOpen, asOf
-  https.get(
-    'https://newweb.nepalstock.com/api/nots/nepse-data/market-open',
-    (response) => {
-      response.on('data', (chunk) => {
-        data2 += chunk
-      })
+  https.get(url2, (response) => {
+    response.on('data', (chunk) => {
+      data2 += chunk
+    })
 
-      response.on('end', () => {
-        const arrData = JSON.parse(data2)
-        isOpen = arrData.isOpen
-        asOf = arrData.asOf
-      })
-    }
-  )
+    response.on('end', () => {
+      const arrData = JSON.parse(data2)
+      isOpen = arrData.isOpen
+      asOf = arrData.asOf
+    })
+  })
 
   let data = ''
 
